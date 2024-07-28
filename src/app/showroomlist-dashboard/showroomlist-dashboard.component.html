@@ -16,7 +16,7 @@
               </div>
           </div>
           <div class="table-responsive">
-              <table class="align-middle text-truncate mb-0 table table-borderless table-hover">
+              <table class="align-middle text-truncate mb-0 table table-striped table-hover">
                   <thead>
                       <tr>
                           <th class="text-center">ID</th>
@@ -33,7 +33,7 @@
                       </tr>
                   </thead>
                   <tbody>
-                      <tr *ngFor="let s of showroom | paginate: { itemsPerPage: 3, currentPage: p }">
+                      <tr *ngFor="let s of showroom | paginate: { itemsPerPage: 5, currentPage: p }">
                           <!-- <td class="text-center text-muted" style="width: 80px;">#{{user.us_id}}</td> -->
                          
                           <td class="text-center">
@@ -55,7 +55,8 @@
 
                           <td class="text-center">
                               <div class="btn-group-sm btn-group" role="group">
-                                <a class="btn btn-secondary btn-sm text-center" href="#"><i class="fas fa-info-circle"></i> Details</a>
+                                <!-- <button class="btn btn-danger" (click)="delete()">Delete</button> -->
+                                <a class="btn btn-secondary btn-sm text-center" href="showroomdetails/{{s.id}}"><i class="fas fa-info-circle"></i> Details</a>
                                 <a class="btn btn-info btn-sm text-center" href="showroomform/{{s.id}}"><i class="fas fa-wrench"></i> Update</a>
                               </div>
                           </td>

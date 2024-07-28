@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '../services/api.service';
 import { ActivatedRoute } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-postform',
@@ -19,13 +20,15 @@ export class PostformComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private api: ApiService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private http: HttpClient
   ) {
     this.formPost = this.formBuilder.group({
       user_id: ['1'],  // Default value for user_id
       title: ['', Validators.required],
       body: ['', Validators.required],
-      images: [null]
+      images: [null],
+      _method:['PUT'],
     });
   }
 
@@ -59,10 +62,11 @@ export class PostformComponent implements OnInit {
   }
 
   onSubmit() {
-    const formData = new FormData();
+    const formData:FormData = new FormData();
     formData.append('user_id', this.formPost.value.user_id);
     formData.append('title', this.formPost.value.title);
     formData.append('body', this.formPost.value.body);
+    formData.append('_method', 'PUT');
     if (this.fileToUpload !== null) {
       formData.append('images', this.fileToUpload);
     }
@@ -73,14 +77,25 @@ export class PostformComponent implements OnInit {
           if (data) {
             this.message = 'Post updated successfully';
           }
+        },
+        error: (error) => {
+          this.message2 = 'Error updating Post';
+          console.error(error);
         }
       });
     } else {
+      // Display the values
+      
+
       this.api.insert_posts(formData).subscribe({
         next: (data: any) => {
           if (data) {
             this.message = 'Post created successfully';
           }
+        },
+        error: (error) => {
+          this.message2 = 'Error creating Post';
+          console.error(error);
         }
       });
     }

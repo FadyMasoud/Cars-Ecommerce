@@ -19,7 +19,7 @@
               </div>
               <div class="table-responsive">
                   <!-- table table-striped -->
-              <table class="align-middle text-truncate mb-0 table table-borderless table-hover">
+              <table class="align-middle text-truncate mb-0 table table-striped table-hover">
                 <thead>
                   <tr>
                     <th class="text-center">ID</th>
@@ -37,7 +37,7 @@
                     <td class="text-center">{{p.title}}</td>
                     <td class="text-center" style="width: 80px;">
                       <!-- <img [src]="'http://your-laravel-domain/storage/' + category.images" alt="{{ category.name }}"> -->
-                      <img [src]="'http://localhost/FirstLaravel-app/public/storage/' + p.images" alt="..." style="border-radius: 50px;">
+                      <img [src]=" p.image_link" alt="..." style="border-radius: 50px;">
                   </td>
                     <td class="text-center">{{p.body}}</td>
                     <td class="text-center">{{p.created_at}}</td>

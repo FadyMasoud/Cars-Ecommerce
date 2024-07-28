@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -26,16 +26,22 @@ export class ApiService {
 
   insert_posts(postData: any){
     console.log("insert_posts_api");
-    return this.http.post<[]>(this.newbaseurl+'/posts', postData);
+    const headers = new HttpHeaders();
+    headers.append('Content-Type', 'multipart/form-data');
+    headers.set('Content-Type', 'application/json; charset=utf-8');
+    return this.http.post<[]>(this.newbaseurl+'/posts', postData,{headers: headers});
   }
 
   update_posts(id:any,postData: any){
     console.log("update_posts_api");
-    return this.http.put<[]>(this.newbaseurl+'/posts/'+id, postData);
+    const headers = new HttpHeaders();
+    headers.append('Content-Type', 'multipart/form-data');
+    headers.set('Content-Type', 'application/json; charset=utf-8');
+    return this.http.post<[]>(this.newbaseurl+'/posts/'+id, postData,{headers: headers});
   }
   delete_posts(id:any){
     console.log("delete_posts_api");
-    return this.http.delete<[]>(this.newbaseurl+'/posts'+id);
+    return this.http.delete<[]>(this.newbaseurl+'/posts/'+id);
   }
   // restore_posts(id:any,postdata:any){
   //   console.log("restore_posts_api");
@@ -71,11 +77,18 @@ export class ApiService {
   }
 insert_category(categoryData: any){
     console.log("insert_category_api");
-    return this.http.post<[]>(this.newbaseurl+'/categories', categoryData);
+    const headers = new HttpHeaders();
+    headers.append('Content-Type', 'multipart/form-data');
+    headers.set('Content-Type', 'application/json; charset=utf-8');
+    return this.http.post<[]>(this.newbaseurl+'/categories', categoryData,{headers: headers});
   }
-  update_category(id:number,categoryData: any){
+  update_category(id:number,categoryData:any){
     console.log("update_category_api");
-    return this.http.put<[]>(this.newbaseurl+'/categories/'+id, categoryData);
+    console.log(categoryData);
+    const headers = new HttpHeaders();
+    headers.append('Content-Type', 'multipart/form-data');
+    headers.set('Content-Type', 'application/json; charset=utf-8');
+    return this.http.post<[]>(this.newbaseurl+'/categories/'+id, categoryData,{headers: headers});
   }
 
   delete_category(id:any){
@@ -105,7 +118,7 @@ insert_category(categoryData: any){
     const url = `${this.newbaseurl}/products/${id}`;
     return this.http.get<any>(url);
   }
-  //to get products for each category in (component productsforeachcategory.ts )
+  //to get products for each category in (use it in component productsforeachcategory.ts )
   get_products_for_each_category(id_category:number): Observable<any> {
     console.log("get_products_for_each_category_api");
     return this.http.get<any>(`${this.newbaseurl}/productsbycategory/${id_category}`);
@@ -113,11 +126,17 @@ insert_category(categoryData: any){
 
   insert_product(productData: any){
     console.log("insert_product_api");
-    return this.http.post<[]>(this.newbaseurl+'/products', productData);
+    const headers = new HttpHeaders();
+    headers.append('Content-Type', 'multipart/form-data');
+    headers.set('Content-Type', 'application/json; charset=utf-8');
+    return this.http.post<[]>(this.newbaseurl+'/products', productData,{headers: headers});
   }
   update_product(productId: number,productData:any){
     console.log("update_product_api");
-    return this.http.put<[]>(this.newbaseurl+'/products/'+productId, productData);
+    const headers = new HttpHeaders();
+    headers.append('Content-Type', 'multipart/form-data');
+    headers.set('Content-Type', 'application/json; charset=utf-8');
+    return this.http.post<[]>(this.newbaseurl+'/products/'+productId, productData,{headers: headers});
   }
 
   delete_product(id:any){
@@ -125,10 +144,6 @@ insert_category(categoryData: any){
     return this.http.delete<[]>(this.newbaseurl+'/products/'+id);
   }
 
-  // restore_product(id:any,productdata:any){
-  //   console.log("restore_product_api");
-  //   return this.http.post<[]>(`${this.newbaseurl}/products/${id}/restore`,productdata);
-  // }
 
   //////////////////////////////////////////////////////////////////////////////
 
@@ -177,9 +192,16 @@ insert_category(categoryData: any){
     return this.http.get<any>(`${this.newbaseurl}/users/${id}`);
   }
 
+  //to register user
   insert_user(userData: any){
     console.log("insert_user_api");
     return this.http.post<[]>(this.newbaseurl+'/register', userData);
+  }
+
+  //to login user
+  login_user(userData: any){
+    console.log("login_user_api");
+    return this.http.post<[]>(this.newbaseurl+'/login', userData);
   }
 
   update_user(id:number,userData: any){

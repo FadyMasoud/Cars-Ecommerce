@@ -119,8 +119,8 @@
   text-align: center;
   color: white;
   background-color: #044a28;
-  /* border-radius: 20px; */
-  box-shadow: 0 25px 25px 0 rgba(0, 0, 0, 0.4);
+  /* border-radius: 20   */
+  box-shadow: 0 25px 25px 0 rgba(0, 0, 0, 0.5 );
   cursor: pointer;
   transition: 1s ease;
 

@@ -38,7 +38,7 @@ export class PostdetailsComponent {
     this.api.delete_posts(this.id).subscribe({
       next:(data:any)=>{
         if(data){
-          this.router.navigate(['dashboard'])
+          this.router.navigate(['postlist-dashboard'])
         }
       }
     })

@@ -37,7 +37,7 @@ export class ProductdetailsComponent {
     this.api.delete_product(this.id).subscribe({
       next:(data:any)=>{
         this.message=data['message'];
-        this.router.navigate(['/dashboard']);
+        this.router.navigate(['productlist-dashboard']);
       }
     })
   }

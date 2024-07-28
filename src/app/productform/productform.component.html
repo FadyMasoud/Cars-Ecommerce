@@ -16,10 +16,15 @@
                 <h1 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Product Information Form</h1>
                 <label style="color:green;" class="f-2">{{message}}</label><br>
                 <label style="color:red;" class="f-2">{{message2}}</label><br>
-                <form [formGroup]="formproduct">
+                <form [formGroup]="formproduct" enctype="multipart/form-data">
                   <div class="form-group">
                     <div class="d-flex align-items-center mb-3 pb-1">
-                      <select class="form-control" formControlName="id_category" placeholder="category" style="padding:20px">
+                      <input type="hidden" class="form-control" formControlName="id" placeholder="Product ID"  readonly>
+                    </div>
+                    </div>
+                  <div class="form-group">
+                    <div class="d-flex align-items-center mb-3 pb-1">
+                      <select class="form-control" formControlName="id_category" placeholder="Select Category" style="padding:20px">
                         <option value="" disabled selected>Choose a category</option>
                         <option *ngFor="let c of category" [value]="c.id">{{c.name}}</option>
                       </select>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Directive, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '../services/api.service';
 import { ActivatedRoute } from '@angular/router';
@@ -22,7 +22,8 @@ export class ProductformComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,private api: ApiService, private route: ActivatedRoute, private sanitizer: DomSanitizer
   ) {
     this.formproduct = this.formBuilder.group({
-      id_category: [''],
+      id:[''],
+      id_category: ['',Validators.required],
       id_showroom: ['', Validators.required],
       name: ['', Validators.required],
       images: [null, Validators.required],
@@ -34,7 +35,8 @@ export class ProductformComponent implements OnInit {
       color: ['', Validators.required],
       brand: ['', Validators.required],
       model: ['', Validators.required],
-      offer: ['', Validators.required]
+      offer: ['', Validators.required],
+      _method:['PUT'],
     });
   }
 
@@ -82,6 +84,7 @@ export class ProductformComponent implements OnInit {
           if (data.product) {
             this.product = data.product;
             this.formproduct.patchValue({
+              id: this.product.id,
               id_category: this.product.id_category,
               id_showroom: this.product.id_showroom,
               name: this.product.name,
@@ -107,6 +110,7 @@ export class ProductformComponent implements OnInit {
 
   onSubmit() {
     const formData = new FormData();
+    formData.append('id', this.formproduct.value.id);
     formData.append('id_category', this.formproduct.value.id_category);
     formData.append('id_showroom', this.formproduct.value.id_showroom);
     formData.append('name', this.formproduct.value.name);
@@ -119,8 +123,9 @@ export class ProductformComponent implements OnInit {
     formData.append('brand', this.formproduct.value.brand);
     formData.append('model', this.formproduct.value.model);
     formData.append('offer', this.formproduct.value.offer);
+    formData.append('_method', 'PUT');
     if (this.fileToUpload !== null) {
-      formData.append('images', this.fileToUpload);
+      formData.append('images', this.fileToUpload);  
     }
 
     if (this.id) {
@@ -129,15 +134,26 @@ export class ProductformComponent implements OnInit {
           if (data) {
             this.message = 'Product updated successfully';
           }
+        },
+        error: (error) => {
+          this.message2 = 'Error updating Product';
+          console.error(error);
         }
       });
     } else {
+      // console.log(formData.get('id'));
+    
       this.api.insert_product(formData).subscribe({
         next: (data: any) => {
           if (data) {
             this.message = 'Product created successfully';
           }
+        },
+        error: (error) => {
+          this.message2 = 'Error Product created';
+          console.error(error);
         }
+
       });
     }
   }

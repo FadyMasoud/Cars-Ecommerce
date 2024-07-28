@@ -13,7 +13,7 @@
                 <h1 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Post Information Form</h1>
                 <label style="color:green;" class="f-2">{{message}}</label><br>
                 <label style="color:red;" class="f-2">{{message2}}</label><br>
-                <form [formGroup]="formPost">
+                <form [formGroup]="formPost" enctype="multipart/form-data">
                   <!-- Hidden input for user_id -->
                   <input type="hidden" formControlName="user_id">
 

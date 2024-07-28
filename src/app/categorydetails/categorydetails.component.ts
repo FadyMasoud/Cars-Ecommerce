@@ -48,7 +48,7 @@ export class CategorydetailsComponent {
       .subscribe({  next: (data: any) => {
              console.log(data);
              this.message=data['message']
-             this.router.navigate(['dashboard']);
+             this.router.navigate(['categorylist-dashboard']);
           // Redirect or perform any other action after successful deletion
         },
         error: (err: any) => {

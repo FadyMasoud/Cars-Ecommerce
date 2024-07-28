@@ -24,6 +24,7 @@ import { PostlistDashboardComponent } from './postlist-dashboard/postlist-dashbo
 import { ProductlistDashboardComponent } from './productlist-dashboard/productlist-dashboard.component';
 import { CategorylistDashboardComponent } from './categorylist-dashboard/categorylist-dashboard.component';
 import { ShowroomlistDashboardComponent } from './showroomlist-dashboard/showroomlist-dashboard.component';
+import { ShowroomdetailsComponent } from './showroomdetails/showroomdetails.component';
 
 
 
@@ -45,6 +46,7 @@ import { ShowroomlistDashboardComponent } from './showroomlist-dashboard/showroo
     ProductlistDashboardComponent,
     CategorylistDashboardComponent,
     ShowroomlistDashboardComponent,
+    ShowroomdetailsComponent,
 
   ],
   imports: [

@@ -23,6 +23,7 @@ export class DashboardComponent  implements OnInit, OnDestroy {
   visits: number = 0;
   buy: number=0;
   p: number = 1;
+  reports: any ='';
   
 
   
@@ -34,6 +35,7 @@ export class DashboardComponent  implements OnInit, OnDestroy {
 
     this.updateVisits();
     this.intervalId = setInterval(() => this.updateVisits(), 100000);
+
 
    
     this.api.get_posts().subscribe({
@@ -153,6 +155,7 @@ export class DashboardComponent  implements OnInit, OnDestroy {
  
   updateVisits(): void {
     this.visits = this.getRandomInt(0, 100);
+    this.reports=this.getRandomInt(0,10);
     this.buy=this.getRandomInt(0, 1000);
      // Generates a random number between 0 and 100
   }

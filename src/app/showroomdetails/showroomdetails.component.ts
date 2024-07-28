@@ -3,12 +3,12 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from '../services/api.service';
 
 @Component({
-  selector: 'app-userdetails',
-  templateUrl: './userdetails.component.html',
-  styleUrls: ['./userdetails.component.css']
+  selector: 'app-showroomdetails',
+  templateUrl: './showroomdetails.component.html',
+  styleUrls: ['./showroomdetails.component.css']
 })
-export class UserdetailsComponent {
-  users:any=[]
+export class ShowroomdetailsComponent {
+  showroom:any=[]
   message:any
 
   id:any
@@ -23,11 +23,11 @@ export class UserdetailsComponent {
     
     console.log(this.id);
 
-    this.api.get_user_by_id(this.id)
+    this.api.get_showroom_by_id(this.id)
     .subscribe({ next:(data:any)=>{
       console.log(data)
       
-      this.users=data['data'];
+      this.showroom=data['showroom'];
     }});
 
   
@@ -38,11 +38,11 @@ export class UserdetailsComponent {
     console.log(this.id);
    
    
-    this.api.delete_user(this.id)
+    this.api.delete_showroom(this.id)
       .subscribe({  next: (data: any) => {
              console.log(data);
              this.message=data['message']
-             this.router.navigate(['userlist-dashboard']);
+             this.router.navigate(['showroomlist-dashboard']);
           // Redirect or perform any other action after successful deletion
         },
         error: (err: any) => {

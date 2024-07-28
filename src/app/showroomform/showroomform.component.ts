@@ -67,22 +67,14 @@ export class ShowroomformComponent implements OnInit {
           if (data.status) {
             this.message = 'Showroom updated successfully';
           }
-        },
-        error: (err: any) => {
-          this.message2 = 'Error updating showroom';
-          console.error(err);
-        }
-      });
+       
+    }});
     } else {
       this.api.insert_showroom(showroomData).subscribe({
         next: (data: any) => {
           if (data.status) {
             this.message = 'Showroom created successfully';
           }
-        },
-        error: (err: any) => {
-          this.message2 = 'Error creating showroom';
-          console.error(err);
         }
       });
     }

@@ -15,6 +15,7 @@ import { PostlistDashboardComponent } from './postlist-dashboard/postlist-dashbo
 import { ProductlistDashboardComponent } from './productlist-dashboard/productlist-dashboard.component';
 import { CategorylistDashboardComponent } from './categorylist-dashboard/categorylist-dashboard.component';
 import { ShowroomlistDashboardComponent } from './showroomlist-dashboard/showroomlist-dashboard.component';
+import { ShowroomdetailsComponent } from './showroomdetails/showroomdetails.component';
 
 
 
@@ -49,7 +50,7 @@ const routes: Routes = [
 
   { path:'showroomform',component:ShowroomformComponent},
   { path:'showroomform/:id',component:ShowroomformComponent},
-  // { path: 'showroomdetails/:id',component:PostdetailsComponent},
+  { path: 'showroomdetails/:id',component:ShowroomdetailsComponent},
 
 
   { path:'userform',component:UserformComponent},
