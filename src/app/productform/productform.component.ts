@@ -1,4 +1,4 @@
-import { Component, Directive, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '../services/api.service';
 import { ActivatedRoute } from '@angular/router';
@@ -15,15 +15,14 @@ export class ProductformComponent implements OnInit {
   message = '';
   product: any = {};
   category: any = [];
-  showroom:any=[];
+  showroom: any = [];
   id: any;
   fileToUpload: File | null = null;
 
-  constructor(private formBuilder: FormBuilder,private api: ApiService, private route: ActivatedRoute, private sanitizer: DomSanitizer
-  ) {
+  constructor(private formBuilder: FormBuilder, private api: ApiService, private route: ActivatedRoute, private sanitizer: DomSanitizer) {
     this.formproduct = this.formBuilder.group({
-      id:[''],
-      id_category: ['',Validators.required],
+      id: [''],
+      id_category: ['', Validators.required],
       id_showroom: ['', Validators.required],
       name: ['', Validators.required],
       images: [null, Validators.required],
@@ -36,7 +35,7 @@ export class ProductformComponent implements OnInit {
       brand: ['', Validators.required],
       model: ['', Validators.required],
       offer: ['', Validators.required],
-      _method:['PUT'],
+      stock: ['', Validators.required]
     });
   }
 
@@ -51,30 +50,19 @@ export class ProductformComponent implements OnInit {
   }
 
   ngOnInit(): void {
-/////////////////////////////////////////////////
-//to get a name of category in form
-
+    // To get the names of categories in the form
     this.api.get_categories().subscribe({
       next: (data: any) => {
-        console.log(data);
-       
         this.category = data['data'];
-        
       }
     });
 
-    /////////////////////////////////////////////
-    //to get a name of showroom in form
-
+    // To get the names of showrooms in the form
     this.api.get_showrooms().subscribe({
       next: (data: any) => {
-        console.log(data);
-       
         this.showroom = data['data'];
-        
       }
     });
-    /////////////////////////////////////////////////
 
     this.id = this.route.snapshot.paramMap.get('id');
 
@@ -96,16 +84,13 @@ export class ProductformComponent implements OnInit {
               color: this.product.color,
               brand: this.product.brand,
               model: this.product.model,
-              offer: this.product.offer
+              offer: this.product.offer,
+              stock: this.product.stock
             });
           }
-
         }
       });
     }
-
-
-    
   }
 
   onSubmit() {
@@ -123,12 +108,14 @@ export class ProductformComponent implements OnInit {
     formData.append('brand', this.formproduct.value.brand);
     formData.append('model', this.formproduct.value.model);
     formData.append('offer', this.formproduct.value.offer);
-    formData.append('_method', 'PUT');
+    formData.append('stock', this.formproduct.value.stock);
+    
     if (this.fileToUpload !== null) {
-      formData.append('images', this.fileToUpload);  
+      formData.append('images', this.fileToUpload);
     }
 
     if (this.id) {
+      formData.append('_method', 'PUT');
       this.api.update_product(this.id, formData).subscribe({
         next: (data: any) => {
           if (data) {
@@ -136,13 +123,11 @@ export class ProductformComponent implements OnInit {
           }
         },
         error: (error) => {
-          this.message2 = 'Error updating Product';
+          this.message2 = 'Error updating product';
           console.error(error);
         }
       });
     } else {
-      // console.log(formData.get('id'));
-    
       this.api.insert_product(formData).subscribe({
         next: (data: any) => {
           if (data) {
@@ -150,10 +135,9 @@ export class ProductformComponent implements OnInit {
           }
         },
         error: (error) => {
-          this.message2 = 'Error Product created';
+          this.message2 = 'Error creating product';
           console.error(error);
         }
-
       });
     }
   }

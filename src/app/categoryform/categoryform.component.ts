@@ -32,7 +32,7 @@ export class CategoryformComponent implements OnInit {
       price: ['', Validators.required],
       speed: ['', Validators.required],
       type: ['', Validators.required],
-      _method:['PUT'],
+      // _method:['PUT'],
     });
   }
 
@@ -78,12 +78,13 @@ export class CategoryformComponent implements OnInit {
     formData.append('price', this.formpcategory.value.price);
     formData.append('speed', this.formpcategory.value.speed);
     formData.append('type', this.formpcategory.value.type);
-    formData.append('_method', 'PUT');
+    // formData.append('_method', 'PUT');
     if (this.fileToUpload !== null) {
       formData.append('images', this.fileToUpload, this.fileToUpload.name);
     }
 
     if (this.id) {
+      formData.append('_method', 'PUT');
       this.api.update_category(this.id, formData).subscribe({
         next: (data: any) => {
           if (data) {

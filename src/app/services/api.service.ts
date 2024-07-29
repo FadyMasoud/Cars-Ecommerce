@@ -19,6 +19,7 @@ export class ApiService {
     return this.http.get<[]>(this.newbaseurl+'/posts');
   }
 
+
   get_post_by_id(id:any){
     console.log("get_posts_by_id_api");
     return this.http.get<[]>(this.newbaseurl+'/posts/'+id);

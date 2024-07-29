@@ -28,7 +28,7 @@ export class PostformComponent implements OnInit {
       title: ['', Validators.required],
       body: ['', Validators.required],
       images: [null],
-      _method:['PUT'],
+      
     });
   }
 
@@ -66,12 +66,13 @@ export class PostformComponent implements OnInit {
     formData.append('user_id', this.formPost.value.user_id);
     formData.append('title', this.formPost.value.title);
     formData.append('body', this.formPost.value.body);
-    formData.append('_method', 'PUT');
+    
     if (this.fileToUpload !== null) {
       formData.append('images', this.fileToUpload);
     }
 
     if (this.id) {
+      formData.append('_method', 'PUT');
       this.api.update_posts(this.id, formData).subscribe({
         next: (data: any) => {
           if (data) {
