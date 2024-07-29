@@ -25,6 +25,8 @@ import { ProductlistDashboardComponent } from './productlist-dashboard/productli
 import { CategorylistDashboardComponent } from './categorylist-dashboard/categorylist-dashboard.component';
 import { ShowroomlistDashboardComponent } from './showroomlist-dashboard/showroomlist-dashboard.component';
 import { ShowroomdetailsComponent } from './showroomdetails/showroomdetails.component';
+import { OrderlistDashboardComponent } from './orderlist-dashboard/orderlist-dashboard.component';
+import { MaintenceorderlistDashboardComponent } from './maintenceorderlist-dashboard/maintenceorderlist-dashboard.component';
 
 
 
@@ -47,6 +49,8 @@ import { ShowroomdetailsComponent } from './showroomdetails/showroomdetails.comp
     CategorylistDashboardComponent,
     ShowroomlistDashboardComponent,
     ShowroomdetailsComponent,
+    OrderlistDashboardComponent,
+    MaintenceorderlistDashboardComponent,
 
   ],
   imports: [

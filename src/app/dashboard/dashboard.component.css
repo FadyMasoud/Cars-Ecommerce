@@ -93,6 +93,10 @@
   transition: 1s ease;
   
 }
+a{
+  text-decoration: none;
+  color: white;
+}
 
 .reports:hover{
   background-color: #f8f9fa;

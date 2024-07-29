@@ -16,6 +16,8 @@ import { ProductlistDashboardComponent } from './productlist-dashboard/productli
 import { CategorylistDashboardComponent } from './categorylist-dashboard/categorylist-dashboard.component';
 import { ShowroomlistDashboardComponent } from './showroomlist-dashboard/showroomlist-dashboard.component';
 import { ShowroomdetailsComponent } from './showroomdetails/showroomdetails.component';
+import { OrderlistDashboardComponent } from './orderlist-dashboard/orderlist-dashboard.component';
+import { MaintenceorderlistDashboardComponent } from './maintenceorderlist-dashboard/maintenceorderlist-dashboard.component';
 
 
 
@@ -28,6 +30,9 @@ const routes: Routes = [
   {path:'productlist-dashboard',component:ProductlistDashboardComponent},
   {path:'categorylist-dashboard',component:CategorylistDashboardComponent},
   {path:'showroomlist-dashboard',component:ShowroomlistDashboardComponent},
+  {path:'orderlist-dashboard',component:OrderlistDashboardComponent},
+  {path:'maintenceorderlist-dashboard',component:MaintenceorderlistDashboardComponent},
+
   
  
 
