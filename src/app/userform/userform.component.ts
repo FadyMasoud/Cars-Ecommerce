@@ -41,6 +41,8 @@ export class UserformComponent implements OnInit {
         next: (data: any) => {
           if (data.user) {
             this.user = data.user;
+            console.log(this.user);
+            
             this.formUser.patchValue({
               id: this.user.id,
               name: this.user.name,
@@ -49,22 +51,17 @@ export class UserformComponent implements OnInit {
              
             });
           }
-        },
-        error: (err: any) => {
-          this.message2 = 'Error fetching user data';
-          console.error(err);
         }
       });
     }
   }
-
   onSubmit() {
     const userData = this.formUser.value;
 
     if (this.id) {
       this.api.update_user(this.id, userData).subscribe({
         next: (data: any) => {
-          if (data.status) {
+          if (data.message) {
             this.msg = 'User updated successfully';
           }
         },
@@ -76,7 +73,7 @@ export class UserformComponent implements OnInit {
     } else {
       this.api.insert_user(userData).subscribe({
         next: (data: any) => {
-          if (data.status) {
+          if (data.message) {
             this.msg = 'User created successfully';
           }
         },
