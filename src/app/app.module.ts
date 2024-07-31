@@ -27,6 +27,23 @@ import { ShowroomlistDashboardComponent } from './showroomlist-dashboard/showroo
 import { ShowroomdetailsComponent } from './showroomdetails/showroomdetails.component';
 import { OrderlistDashboardComponent } from './orderlist-dashboard/orderlist-dashboard.component';
 import { MaintenceorderlistDashboardComponent } from './maintenceorderlist-dashboard/maintenceorderlist-dashboard.component';
+import { HomeComponent } from './home/home.component';
+import { CategoryComponent } from './category/category.component';
+import { ProdDetailsComponent } from './prod-details/prod-details.component';
+import { StoreComponent } from './store/store.component';
+import { AllProductsComponent } from './all-products/all-products.component';
+import { FooterComponent } from './footer/footer.component';
+import { HeaderComponent } from './header/header.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { CartComponent } from './cart/cart.component';
+import { BlogComponent } from './blog/blog.component';
+import { WishlistComponent } from './wishlist/wishlist.component';
+import { AboutUsComponent } from './about-us/about-us.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { CheckOutComponent } from './check-out/check-out.component';
+import { MaintenanceOrderComponent } from './maintenance-order/maintenance-order.component';
 
 
 
@@ -51,6 +68,23 @@ import { MaintenceorderlistDashboardComponent } from './maintenceorderlist-dashb
     ShowroomdetailsComponent,
     OrderlistDashboardComponent,
     MaintenceorderlistDashboardComponent,
+    HomeComponent,
+    CategoryComponent,
+    ProdDetailsComponent,
+    StoreComponent,
+    AllProductsComponent,
+    FooterComponent,
+    HeaderComponent,
+    LoginComponent,
+    RegisterComponent,
+    CartComponent,
+    BlogComponent,
+    WishlistComponent,
+    AboutUsComponent,
+    ContactUsComponent,
+    NotFoundComponent,
+    CheckOutComponent,
+    MaintenanceOrderComponent,
 
   ],
   imports: [

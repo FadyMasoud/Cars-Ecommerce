@@ -1,0 +1,41 @@
+<div class="container mt-5">
+      <div class="row">
+        <div class="col-md-6 mb-4" *ngFor="let i of product">
+          <div class="card">
+            <div class="row no-gutters">
+              <div class="col-md-6">
+                <div class="position-relative">
+                  <span class="badge-custom">LUXURY</span>
+                  <a [routerLink]="['/prod-details', i.new_id]">
+                    <img [src]="i.image_link" class="card-img-top" alt="..." style="height: 250px">
+                  </a>
+                </div>
+              </div>
+              <div class="col-md-6 description-container p-3">
+                <div>
+                  <h5 class="card-title"><a [routerLink]="['/prod-details', i.new_id]" class="h2 text-decoration-none text-dark">{{ i.name }}</a></h5>
+                  <i class="wishlist-icon fas fa-heart" style="cursor: pointer;"></i>
+    
+                  <div class="d-flex align-items-center mb-2">
+                    <span class="badge badge-success mr-2">4.8</span>
+                    <span class="text-muted">16 Ratings</span>
+                  </div>
+                  <p class="card-text">
+                    <i class="fas fa-map-marker-alt"></i> Barcelona, ES
+                    <br />
+                    <i class="fas fa-phone"></i> +34 2 2458752
+                  </p>
+                  <p class="card-text">
+                    {{ i.description }}
+                    The path of the righteous man is beset on all sides by the
+                    iniquities. Nam in mauris quis libero sod eleifend spectra
+                    online.
+                  </p>
+                  <button><a [routerLink]="['/prod-details', i.new_id]">Details</a></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+    </div>

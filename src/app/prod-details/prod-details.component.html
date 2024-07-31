@@ -1,0 +1,136 @@
+<!-- //fady structures -->
+<div class="container">
+    <div class="row">
+      <div class="col-md-4" *ngFor="let p of product">
+        <div class="card" style="width: 18rem;" >
+          <a [routerLink]="['/category', p.encodedId]">
+          <img src="{{p.image_link}}" class="card-img-top" alt="...">
+      </a>
+          <div class="card-body">
+            <h5 class="card-title">{{p.name}}</h5>
+            <p class="card-text">{{p.pd_name}}</p>
+            <p class="card-text">{{p.price}}</p>
+           
+          </div>
+        </div>
+      </div>
+    </div><br><br><br>
+    <br>
+    <br>
+    <br>
+
+
+<!-- mohamed structures -->
+    <div class="container mt-5">
+      <div class="row">
+        <div class="col-12">
+          <div class="spec-table-container">
+            <table class="table spec-table">
+              <thead>
+                <tr>
+                  <th colspan="2">TECHNICAL SPECIFICATION</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Engine Type</td>
+                  <td>TDCI Diesel Engine</td>
+                </tr>
+                <tr>
+                  <td>Engine Description</td>
+                  <td>1.5kW</td>
+                </tr>
+                <tr>
+                  <td>No. of Cylinders</td>
+                  <td>4</td>
+                </tr>
+                <tr>
+                  <td>Mileage-City</td>
+                  <td>22.4kmpl</td>
+                </tr>
+                <tr>
+                  <td>Mileage-Highway</td>
+                  <td>25.83kmpl</td>
+                </tr>
+                <tr>
+                  <td>Fuel Tank Capacity</td>
+                  <td>40 (Liters)</td>
+                </tr>
+                <tr>
+                  <td>Seating Capacity</td>
+                  <td>5</td>
+                </tr>
+                <tr>
+                  <td>Transmission Type</td>
+                  <td>Manual</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  <!-- dont play in this section mohamed 3shan t3bt feh (fady) -->
+   <!-- sho8l 3allly inshallah m7dsh hyb2a 3aml reviews 3la product 8ernaaaaaaaaa ya zmely-->
+    <section class="review-section shadow-sm">
+      <div class="container">
+        <div class="text-center mb-4">
+          <h2 class="display-4 text-center mb-4">Reviews for Rims</h2>
+          <hr class="bg-dark mb-4" style="height: 2px; border-radius: 10px" />
+        </div>
+  
+        <div class="row">
+          <div class="col-md-12 mb-4" *ngFor="let r of review| paginate: { itemsPerPage: 4, currentPage: p }" >
+            <figure class="figure">
+              <!-- <img
+                src="assets\pexels-04iraq-1272398525-23952899.jpg"
+                class="figure-img img-fluid rounded-circle"
+                alt="John Doe" style="width: 50px;height: 50px;"
+              /> -->
+              <i class="fas fa-user-circle" style="font-size: 30px;"></i>
+             </figure><br>
+
+            <figure class="figure">
+              <!-- <figcaption class="figure-caption">John Doe</figcaption> -->
+              <blockquote class="blockquote mt-3">
+                <p class="mb-0">
+                  {{r.comment}}
+                  <br>
+                  <!-- This is the best service I have ever used. Highly recommend! -->
+                </p>
+                <hr>
+              </blockquote>
+            </figure>
+           
+          </div>
+          <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+         
+
+        </div>
+      </div>
+  
+      <div class="container mt-4">
+        <div class="text-center mb-4">
+          <h2 class="display-4 text-center mb-4">Rate us and Write a Review</h2>
+          <hr class="bg-dark mb-4" style="height: 2px; border-radius: 10px" />
+        </div>
+  
+        <form [formGroup]="formreview">
+          <div class="form-group row">
+            <label for="review" class="col-sm-2 col-form-label">Review</label>
+            <div class="col-sm-10">
+              <textarea class="form-control" formControlName="comment" id="comment" placeholder="Your review is recommended to be at least 140 characters long"></textarea>
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col">
+              <button type="submit" class="btn" style="background-color: #dd3333; color: #fff; float: right" (click)="submit()">Submit Review
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+  </div>
+  

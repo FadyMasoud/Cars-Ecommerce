@@ -1,0 +1,675 @@
+<!-- 
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" >
+
+    <div class="container-fluid">
+      <a href="home.html" class="nav-link active" aria-current="page" style="font-size: 27px;
+       color: rgb(0, 0, 0);font-weight: bold;margin-left: 100px;padding: 5px 0px;">SmarTchips <i class="fas fa-bolt"></i></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin-left: 200px;font-size:18px;">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0" >
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="home">HOME</a>
+          </li>
+         
+          <li class="dropdown">
+            <a class="nav-link me-4 dropdown-toggle link-dark" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Categories</a>
+            <ul class="dropdown-menu">
+              <li *ngFor="let c of category">
+                <a [routerLink]="['/category', c.encodedId]" class="dropdown-item">{{c.name}}</a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item"  >
+            <a class="nav-link active" aria-current="page" href="AllProducts">PRODUCTS</a>
+          </li>
+          
+          
+          <li class="nav-item">
+            <a href="#"><i class="fas fa-search"></i></a>
+          </li>
+          <li class="nav-item">
+            <a href="#"><i class="fas fa-cart-arrow-down"></i></a>
+          </li>
+          <li class="nav-item">
+            <a href="#"><i class="fas fa-heart"></i></a>
+          </li>
+
+          <li class="nav-item2 ">
+            <a class="nav-link2 active2 logout " aria-current="page" (click)="logout()" href="#">LOGOUT</a>
+          </li>
+        </ul>
+        
+      </div>
+      
+    </div>
+  </nav><br><br><br><br><br> -->
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-4" *ngFor="let p of category">
+      <div class="card" style="width: 18rem;" >
+        <a [routerLink]="['/category', p.encodedId]">
+        <img src="{{p.image_link}}" class="card-img-top" alt="...">
+    </a>
+        <div class="card-body">
+          <h5 class="card-title">{{p.name}}</h5>
+          <p class="card-text">{{p.pd_name}}</p>
+          <p class="card-text">{{p.price}}</p>
+          <a [routerLink]="['/category', p.encodedId]">Go somewhere</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4" *ngFor="let kit of kits">
+      <div class="card" style="width: 18rem;">
+        <a [routerLink]="['/category', kit.encodedId]">
+          <img [src]="image_link" class="card-img-top" alt="{{name}}">
+        </a>
+        <div class="card-body">
+          <h5 class="card-title">{{pd_name}}</h5>
+          <p class="card-text">{{price}}</p>
+          <p class="card-text">{{description}}</p>
+          <a [routerLink]="['/category', kit.encodedId]" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+
+
+  <div class="row">
+    <div class="col-md-4" *ngFor="let p of store">
+      <div class="card" style="width: 18rem;">
+        <!-- <a href="store/{{p.new_id}}">
+        <img src="{{p.image_link}}" class="card-img-top" alt="...">
+    </a> -->
+        <div class="card-body">
+          <h5 class="card-title">{{p.name}}</h5>
+          <p class="card-text">{{p.contact_number}}</p>
+         
+          <a [routerLink]="['/store', p.encodedId]" class="btn btn-primary">Go store</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
+
+
+
+
+
+
+
+<!-- carasoul with static section -->
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <h2 class="fw-bold mt-5"><strong>Find Your Best Match</strong></h2>
+      <span class="line-grey"></span>
+      <span class="line-orange"></span>
+      <span class="line-grey"></span>
+      <p class="lead fs-5">
+        A masterful combination of style, power, sporty handling and comfort. A
+        masterful combination of style,<br />
+        power, sporty handling and comfort.
+      </p>
+    </div>
+  </div>
+</div>
+<!-- <div class="container mt-5">
+
+  <div
+    id="carouselExampleIndicators"
+    class="carousel slide"
+    data-ride="carousel"
+  >
+    <div class="carousel-indicators" style="bottom: -50px">
+      <button
+        type="button"
+        data-bs-target="#carouselExampleIndicators"
+        data-bs-slide-to="0"
+        class="active"
+        aria-current="true"
+        aria-label="Slide 1"
+        style="background-color: #dd3333"
+      ></button>
+      <button
+        type="button"
+        data-bs-target="#carouselExampleIndicators"
+        data-bs-slide-to="1"
+        aria-label="Slide 2"
+        style="background-color: #dd3333"
+      ></button>
+      <button
+        type="button"
+        data-bs-target="#carouselExampleIndicators"
+        data-bs-slide-to="2"
+        aria-label="Slide 3"
+        style="background-color: #dd3333"
+      ></button>
+    </div>
+
+    <div class="carousel-inner" style="max-width: 1200px; margin: 0 auto">
+      <div class="carousel-item active">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="img-hover-container">
+              <img
+                class="d-block w-100"
+                src="../../assets/carasoul1.jpg"
+                alt="..."
+              />
+              <div class="img-hover-text text-start">
+                <h5>Luxury</h5>
+                <p>
+                  A masterful combination of style, power, sporty handling and
+                  comfort.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="img-hover-container">
+              <img
+                class="d-block w-100"
+                src="../../assets/carasoul2.jpg"
+                alt="..."
+              />
+              <div class="img-hover-text text-start">
+                <h5>Sporty Cars</h5>
+                <p>
+                  A masterful combination of style, power, sporty handling and
+                  comfort.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="img-hover-container">
+              <img
+                class="d-block w-100"
+                src="../../assets/carasoul2.jpg"
+                alt="..."
+              />
+              <div class="img-hover-text text-start">
+                <h5>Sporty Cars</h5>
+                <p>
+                  A masterful combination of style, power, sporty handling and
+                  comfort.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="img-hover-container">
+              <img
+                class="d-block w-100"
+                src="../../assets/carasoul3.jpg"
+                alt="..."
+              />
+              <div class="img-hover-text text-start">
+                <h5>Semi Sporty</h5>
+                <p>
+                  A masterful combination of style, power, sporty handling and
+                  comfort.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="img-hover-container">
+              <img
+                class="d-block w-100"
+                src="../../assets/carasoul3.jpg"
+                alt="..."
+              />
+              <div class="img-hover-text text-start">
+                <h5>Semi Sporty</h5>
+                <p>
+                  A masterful combination of style, power, sporty handling and
+                  comfort.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="img-hover-container">
+              <img
+                class="d-block w-100"
+                src="../../assets/carasoul1.jpg"
+                alt="..."
+              />
+              <div class="img-hover-text text-start">
+                <h5>Luxury</h5>
+                <p>
+                  A masterful combination of style, power, sporty handling and
+                  comfort.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <a
+      class="carousel-control-prev"
+      href="#carouselExampleIndicators"
+      role="button"
+      data-slide="prev"
+    >
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a
+      class="carousel-control-next"
+      href="#carouselExampleIndicators"
+      role="button"
+      data-slide="next"
+    >
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div> -->
+
+
+<!-- get all category by get_categories_except_kits() in .ts-->
+<div class="carousel-inner mt-3" style="max-width: 1500px; margin: 0 auto">
+  <div class="carousel-item active">
+    <div class="row">
+      <div class="col-md-4 shadow-sm" *ngFor="let c of category">
+        <div class="img-hover-container">
+          <a [routerLink]="['/category', c.encodedId]">
+            <img src="{{c.image_link}}" class="card-img-top" alt="...">
+        </a>
+          <div class="img-hover-text text-start">
+            <h5>{{c.name}}</h5>
+            <p>
+              {{c.description}}
+              A masterful combination of style, power, sporty handling and
+              comfort.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- if you want to split categories in home page 3 in section and other 3 in other section -->
+
+<!-- get first three category by get_first_three_category() in .ts-->
+<div class="carousel-inner mt-3" style="max-width: 1500px; margin: 0 auto">
+  <div class="carousel-item active">
+    <div class="row">
+      <div class="col-md-4 shadow-sm" *ngFor="let f of first_category">
+        <div class="img-hover-container">
+          <a [routerLink]="['/category', f.encodedId]">
+            <img src="{{f.image_link}}" class="card-img-top" alt="...">
+        </a>
+          <div class="img-hover-text text-start">
+            <h5>{{f.name}}</h5>
+            <p>
+              {{f.description}}
+              A masterful combination of style, power, sporty handling and
+              comfort.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- get seconde three category by get_seconde_three_category() in .ts-->
+<div class="carousel-inner mt-3" style="max-width: 1500px; margin: 0 auto">
+  <div class="carousel-item active">
+    <div class="row">
+      <div class="col-md-4 shadow-sm" *ngFor="let e of end_category">
+        <div class="img-hover-container">
+          <a [routerLink]="['/category', e.encodedId]">
+            <img src="{{e.image_link}}" class="card-img-top" alt="...">
+        </a>
+          <div class="img-hover-text text-start">
+            <h5>{{e.name}}</h5>
+            <p>
+              {{e.description}}
+              A masterful combination of style, power, sporty handling and
+              comfort.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- fixed image  -->
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <h2 class="fw-bold mt-5"><strong>Discover</strong></h2>
+      <span class="line-grey"></span>
+      <span class="line-orange"></span>
+      <span class="line-grey"></span>
+      <p class="lead fs-5">
+        A masterful combination of style, power, sporty handling and comfort. A
+        masterful combination of style,<br />
+        power, sporty handling and comfort.
+      </p>
+    </div>
+  </div>
+</div>
+<div class="fixed-bg mt-5">
+  <div class="container">
+    <div class="row text-start">
+      <div class="col-12 content">
+        <p class="fw-bold text-white">OUR MAIN GOAL -</p>
+        <h1 class="fw-bold text-white">
+          <strong
+            >The Best Theme for
+            <span style="color: #dd3333">Car Listing</span>
+          </strong>
+        </h1>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- News and Technology -->
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <h2 class="fw-bold mt-5"><strong>News and Technology</strong></h2>
+      <span class="line-grey"></span>
+      <span class="line-orange"></span>
+      <span class="line-grey"></span>
+      <p class="lead fs-5">
+        A masterful combination of style, power, sporty handling and comfort. A
+        masterful combination of style,<br />
+        power, sporty handling and comfort.
+      </p>
+    </div>
+  </div>
+</div>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-lg-8">
+      <div class="row">
+        <div class="col-6 mb-4" *ngFor="let kit of kits">
+          <div class="img-hover-container">
+            <a [routerLink]="['/category', kit.encodedId]">
+              <img [src]="image_link" class="card-img-top" alt="{{name}}">
+            </a>
+           
+            <div class="img-hover-text text-start">
+              <h5 class="card-title">{{pd_name}}</h5>
+          <p class="card-text">{{price}}</p>
+          <p class="card-text">{{description}}</p>
+          <a [routerLink]="['/category', kit.encodedId]" class="btn btn-primary">Go somewhere</a>
+          
+        </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6 mb-4">
+          <div class="img-hover-container">
+            <img src="../../assets/grid2.jpg" class="img-fluid" alt="" />
+            <div class="img-hover-text text-start">
+              <h5>The Love Of Power Is The Demon Of Men & Women</h5>
+              <p>
+                A masterful combination of style, power, sporty handling and
+                comfort.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6 mb-4">
+          <div class="img-hover-container">
+            <img src="../../assets/grid3.jpg" class="img-fluid" alt="" />
+            <div class="img-hover-text text-start">
+              <h5>The Love Of Power Is The Demon Of Men & Women</h5>
+              <p>
+                A masterful combination of style, power, sporty handling and
+                comfort.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+
+    <div class="col-lg-4">
+      <div class="img-hover-container">
+        <img src="../../assets/grid.jpg" class="img-fluid" alt="" />
+        <div class="img-hover-text text-start">
+          <h5>The Love Of Power Is The Demon Of Men & Women</h5>
+          <p>
+            A masterful combination of style, power, sporty handling and
+            comfort.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- get all stores=showrooms by get_showrooms()-->
+<div class="carousel-inner mt-3" style="max-width: 1500px; margin: 0 auto">
+  <div class="carousel-item active">
+    <div class="row">
+      <div class="col-md-2 shadow-sm" *ngFor="let s of store">
+        <div class="img-hover-container">
+          <a [routerLink]="['/store', s.encodedId]" class="btn btn-primary">Go store</a>
+          <div class="img-hover-text text-start">
+            <h5>{{s.name}}</h5>
+            <p >{{s.contact_number}}</p>
+            <p>
+              
+              A masterful combination of style, power, sporty handling and
+              comfort.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Statistics Section -->
+<section class="about-counter-sec mt-5">
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+      <!--Counter 1-->
+      <div
+        class="col-xl-2 col-lg-2 col-md-3 col-sm-3 text-center p-0"
+        style="background-color: #dd3333"
+      >
+        <div class="counter-sec-content text-white">
+          <h3
+            class="display-8 font-weight-bold"
+            style="font-size: 30px; margin-top: 80px"
+          >
+            <span class="count">500+</span><i class="flaticon-add"></i>
+          </h3>
+          <h5 class="text-uppercase rubik" style="font-size: 20px">
+            Happy client
+          </h5>
+        </div>
+      </div>
+      <!--Image 1-->
+      <div class="col-xl-2 col-lg-2 col-md-3 col-sm-3 p-0">
+        <div class="counter-sec">
+          <img
+            src="../../assets/aboutus-2.jpg"
+            alt="Happy client"
+            class="img-fluid full-width"
+            style="object-fit: cover; height: 100%; width: 100%"
+          />
+        </div>
+      </div>
+      <!-- Counter 2 -->
+      <div
+        class="col-xl-2 col-lg-2 col-md-3 col-sm-3 text-center p-0"
+        style="background-color: #dd3333"
+      >
+        <div class="counter-sec-content text-white">
+          <h3
+            class="display-8 font-weight-bold"
+            style="font-size: 30px; margin-top: 80px"
+          >
+            <span class="count">1000+</span><i class="flaticon-add"></i>
+          </h3>
+          <h5 class="text-uppercase rubik" style="font-size: 20px">
+            EQUIPMENTS
+          </h5>
+        </div>
+      </div>
+      <!-- Image 2 -->
+      <div class="col-xl-2 col-lg-2 col-md-3 col-sm-3 p-0">
+        <div class="counter-sec">
+          <img
+            src="../../assets/aboutus-3.jpg"
+            alt="Equipments"
+            class="img-fluid full-width"
+            style="object-fit: cover; height: 100%; width: 100%"
+          />
+        </div>
+      </div>
+      <!-- Counter 3 -->
+      <div
+        class="col-xl-2 col-lg-2 col-md-3 col-sm-3 text-center p-0"
+        style="background-color: #dd3333"
+      >
+        <div class="counter-sec-content text-white">
+          <h3
+            class="display-8 font-weight-bold"
+            style="font-size: 30px; margin-top: 80px"
+          >
+            <span class="count">100+</span><i class="flaticon-add"></i>
+          </h3>
+          <h5 class="text-uppercase rubik" style="font-size: 20px">
+            EXPERT TRAINERS
+          </h5>
+        </div>
+      </div>
+      <!-- Image 3 -->
+      <div class="col-xl-2 col-lg-2 col-md-3 col-sm-3 p-0">
+        <div class="counter-sec">
+          <img
+            src="../../assets/aboutus-2.jpg"
+            alt="Expert Trainers"
+            class="img-fluid full-width"
+            style="object-fit: cover; height: 100%; width: 100%"
+          />
+        </div>
+      </div>
+      <!-- Image 4 -->
+      <div class="col-xl-2 col-lg-2 col-md-3 col-sm-3 p-0">
+        <div class="counter-sec">
+          <img
+            src="../../assets/aboutus-4.jpg"
+            alt="Award Win"
+            class="img-fluid full-width"
+            style="object-fit: cover; height: 100%; width: 100%"
+          />
+        </div>
+      </div>
+      <!-- Counter 4 -->
+      <div
+        class="col-xl-2 col-lg-2 col-md-3 col-sm-3 text-center p-0"
+        style="background-color: #dd3333"
+      >
+        <div class="counter-sec-content text-white">
+          <h3
+            class="display-8 font-weight-bold"
+            style="font-size: 30px; margin-top: 80px"
+          >
+            <span class="count">150+</span><i class="flaticon-add"></i>
+          </h3>
+          <h5 class="text-uppercase rubik" style="font-size: 20px">
+            AWARD WIN
+          </h5>
+        </div>
+      </div>
+      <!-- Image 5 -->
+      <div class="col-xl-2 col-lg-2 col-md-3 col-sm-3 p-0">
+        <div class="counter-sec">
+          <img
+            src="../../assets/aboutus-5.jpg"
+            alt="Personal Trainers"
+            class="full-width img-fluid"
+            style="object-fit: cover; height: 100%; width: 100%"
+          />
+        </div>
+      </div>
+      <!-- Counter 5 -->
+      <div
+        class="col-xl-2 col-lg-2 col-md-3 col-sm-3 text-center p-0"
+        style="background-color: #dd3333"
+      >
+        <div class="counter-sec-content text-white">
+          <h3
+            class="display-8 font-weight-bold"
+            style="font-size: 30px; margin-top: 80px"
+          >
+            <span class="count">20+</span><i class="flaticon-add"></i>
+          </h3>
+          <h5 class="text-uppercase rubik" style="font-size: 20px">
+            PERSONAL TRAINERS
+          </h5>
+        </div>
+      </div>
+      <!-- Image 6 -->
+      <div class="col-xl-2 col-lg-2 col-md-3 col-sm-3 p-0">
+        <div class="counter-sec">
+          <img
+            src="../../assets/aboutus-6.jpg"
+            alt="Class Room"
+            class="img-fluid full-width"
+            style="object-fit: cover; height: 100%; width: 100%"
+          />
+        </div>
+      </div>
+      <!-- Counter 6 -->
+      <div
+        class="col-xl-2 col-lg-2 col-md-3 col-sm-3 text-center p-0"
+        style="background-color: #dd3333"
+      >
+        <div class="counter-sec-content text-white">
+          <h3
+            class="display-8 font-weight-bold"
+            style="font-size: 30px; margin-top: 80px"
+          >
+            <span class="count">100+</span><i class="flaticon-add"></i>
+          </h3>
+          <h5 class="text-uppercase rubik" style="font-size: 20px">
+            CLASS ROOM
+          </h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
